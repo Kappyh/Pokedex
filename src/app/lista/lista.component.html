@@ -1,0 +1,14 @@
+<div class="row">
+
+  <section class="col-xs-12 col-md-12">
+
+    <ul class="lista-todos" *ngFor="let pokemon of pokemon.results">
+      <li>
+        <span>Nome:{{pokemon.name}}</span>
+      </li>
+    </ul>
+    <button (click)="lastPage()">Página anterior</button>
+    <button (click)="nextPage()">Próxima página</button>
+  </section>
+
+</div>

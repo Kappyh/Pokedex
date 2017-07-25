@@ -1,0 +1,50 @@
+.wrapper{
+    width: 100%;
+    padding: 1em;
+    text-align: center;
+}
+.title-principal{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3em;
+    color: #f1c40f;
+}
+.text-box{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.4em;
+    color:white;
+    margin-top: 3em;
+}
+.pokedex{
+    width: 80%;
+    background-color:#e74c3c;
+    color: white;
+    box-shadow: 2px 2px 2px #7f8c8d;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    padding: 1em;
+    position: relative;
+    margin: auto;
+}
+.btnProcurar{
+    margin-top: 1em;
+    font-size: 1.1em;
+    width: 9em;
+    background-color:#27ae60;
+    color: white;
+}
+.btnReset{
+    margin-bottom: 1em;
+    font-size: 1.2em;
+    font-weight: bold; 
+    width: 9em;
+    background-color: red;
+    color: white;
+}
+.btnListar{
+    margin-top: 1em;
+    font-size: 1.1em;
+    font-weight: bold; 
+    width: 9em;
+    background-color: #f39c12;
+    color: white;
+}

@@ -1,0 +1,39 @@
+<div class="row">
+  <section class="wrapper">
+    <div class="col-xs-12 col-md-12">
+      <h1 class="title-principal">Pokédex</h1>
+      <p class="text-box">A ferramenta permite que você busque seu pokemon favorito até IV Geração!</p>
+    </div>
+    <div class="col-xs-12 col-md-12" *ngIf="pokemon.name == undefined">
+      <section class="form-group pokedex">
+        <label for="informePkmn">Informe o pokemon</label>
+        <br/>
+        <input type="text" class="form-control" placeholder="charmander" id="inputPkmn" name="namePkmn" [(ngModel)]="nome">
+        <button class="btn btn-default btnProcurar" id="btn-buscar" (click)="buscarPokemon(nome)">Buscar</button>
+        <button class="btn btn-default btnListar" id="btn-listar" (click)="verTodos()">Listar Todos!</button>
+      </section>
+    </div>
+  </section>
+  <br>
+
+  <div class="col-xs-12 col-md-12">
+
+    <div class="result-box" *ngIf="pokemon.name !== undefined">
+
+      <ul class="lista">
+        <li>
+          <label for="">Nome:</label>
+          <span class="result-text">{{ pokemon.name | uppercase }}</span>
+        </li>
+        <li class="img-box">
+          <img src="{{ pokemon.sprites.front_default }}" alt="{{ pokemon.name }}" width="150px" height="150px">
+        </li>
+      </ul>
+
+      <button class="btn btn-default btnReset" id="btn-reset" (click)="reset()">Nova Busca</button>
+
+    </div>
+
+  </div>
+
+</div>
