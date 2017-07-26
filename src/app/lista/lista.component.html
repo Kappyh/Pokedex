@@ -1,14 +1,21 @@
+<div class="loader loader-pokeball is-active" *ngIf="spinner"></div>
 <div class="row">
 
   <section class="col-xs-12 col-md-12">
-
-    <ul class="lista-todos" *ngFor="let pokemon of pokemon.results">
-      <li>
-        <span>Nome:{{pokemon.name}}</span>
-      </li>
-    </ul>
-    <button (click)="lastPage()">Página anterior</button>
-    <button (click)="nextPage()">Próxima página</button>
+    <div class="result-box">
+      <p class="texto-destaque">Não lembra como escrever os nomes?</p>
+      <ul class="lista-todos" *ngFor="let pokemon of pokemon.results">
+        <li>
+          <span class="pokemon-nome">
+              {{pokemon.name | uppercase}}
+          </span>
+        </li>
+      </ul>
+      <button class="btn btn-default btn-page" (click)="lastPage()">Anterior</button>
+      <button class="btn btn-default btn-page" (click)="nextPage()">Próxima</button>
+      <br/>
+      <button class="btn btn-default btn-home" (click)="voltarHome()">Voltar para Home</button>
+    </div>
   </section>
 
 </div>

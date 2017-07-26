@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import 'bootbox'; //inclusão bootbox
+
 import { HttpService } from "app/resources/http.service"; // service criado para get htpp
 import { Router } from "@angular/router"; // para redirecionamento da rota
+import 'bootbox'; //inclusão bootbox
 
 @Component({
   selector: 'app-home',
@@ -34,6 +35,7 @@ export class HomeComponent implements OnInit {
         data => {
           this.pokemon = data.json();
           this.spinner = false;
+          event.preventDefault();
         },
         error => {
           if (error.status === 404) {

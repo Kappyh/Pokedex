@@ -1,5 +1,17 @@
 body{
-    background-color: #95a5a6;
+    background-color: #757575;
+}
+.texto-destaque{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    color: #C62828;
+    padding-bottom: 1.4em;
+}
+.pokemon-nome{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1em;
+    color: #1B5E20;
+    padding-bottom: 1.1em;
 }
 .lista{
     font-family: Arial, Helvetica, sans-serif;
@@ -32,6 +44,24 @@ body{
     height: 150px;
     border: 2px dotted #ccc;
 }
+
+.btn-page{
+
+    margin-top: 2em;
+    font-size: 1.0em;
+    color: white;
+    background-color: #C62828;
+
+}
+.btn-home{
+
+    margin-top: 1.8em;
+    font-size: 1.5em;
+    color: white;
+    background-color: #0277BD;
+
+}
+
 .spinner{
 
 	-webkit-animation: rotation 1s infinite linear;

@@ -16,7 +16,7 @@
 }
 .pokedex{
     width: 80%;
-    background-color:#e74c3c;
+    background-color:#D32F2F;
     color: white;
     box-shadow: 2px 2px 2px #7f8c8d;
     font-family: Arial, Helvetica, sans-serif;
@@ -30,7 +30,7 @@
     margin-bottom: 1em;
     font-size: 1.1em;
     width: 9em;
-    background-color:#27ae60;
+    background-color:#388E3C;
     color: white;
 }
 .btnReset{
@@ -38,7 +38,7 @@
     font-size: 1.2em;
     font-weight: bold; 
     width: 9em;
-    background-color: red;
+    background-color: #D32F2F;
     color: white;
 }
 .btnListar{
