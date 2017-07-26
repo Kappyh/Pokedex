@@ -30,10 +30,11 @@ export class HomeComponent implements OnInit {
 
     if (nome !== '' && nome !== undefined && nome !== null) {
 
-      this.httpService.get('http://pokeapi.co/api/v2/pokemon/', nome)
+      this.httpService.get('http://pokeapi.co/api/v2/pokemon/', nome.toLowerCase())
         .subscribe(
         data => {
           this.pokemon = data.json();
+          console.log(this.pokemon);
           this.spinner = false;
           event.preventDefault();
         },
