@@ -27,6 +27,7 @@
 }
 .btnProcurar{
     margin-top: 1em;
+    margin-bottom: 1em;
     font-size: 1.1em;
     width: 9em;
     background-color:#27ae60;
@@ -42,6 +43,7 @@
 }
 .btnListar{
     margin-top: 1em;
+    margin-bottom: 1em;
     font-size: 1.1em;
     font-weight: bold; 
     width: 9em;

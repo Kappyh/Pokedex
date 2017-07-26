@@ -20,6 +20,7 @@
       "prefix": "app",
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../src/app/resources/css/loader-pokeball.css",
         "styles.css"
       ],
       "scripts": [

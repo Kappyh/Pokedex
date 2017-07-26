@@ -9,14 +9,15 @@ import { HttpService } from "app/resources/http.service";
 })
 export class ListaComponent implements OnInit {
 
-  public pokemon = [{ results: { name: undefined, url: undefined } }];
-  public pageUp: number = 20;
-  public pageDown: number = 20;
+  public pokemon: any = [{ results: { name: undefined, url: undefined } }];
+  public page: number = 20;
+  public currentPage: number = 20;
 
   constructor(private httpService: HttpService) { }
 
   ngOnInit() {
 
+    /* inicia a listagem */
     this.httpService.get('http://pokeapi.co/api/v2/', 'pokemon')
       .subscribe(
       res => {
@@ -28,34 +29,48 @@ export class ListaComponent implements OnInit {
       );
   }
 
+
+  /* paginação da lista */
+
   public nextPage() {
-    this.pageUp += 20;
-    this.httpService.get('https://pokeapi.co/api/v2/pokemon/?offset=', this.pageUp)
-      .subscribe(
-      res => {
-        console.log(this.pageUp);
-        this.pokemon = res.json();
-        event.preventDefault();
-      },
-      error => {
-        console.log('ahh');
-        console.log(error);
-      }
-      );
+
+    if (this.currentPage <= 791) {
+
+      this.currentPage += this.page;
+
+      this.httpService.get('https://pokeapi.co/api/v2/pokemon/?offset=', this.currentPage)
+        .subscribe(
+        res => {
+          this.pokemon = res.json();
+          event.preventDefault();
+        },
+        error => {
+          console.log(error);
+        }
+        );
+    } else {
+      bootbox.alert('Você chegou ao final da lista!');
+    }
   }
+
   public lastPage() {
-    this.pageDown -= 20;
-    this.httpService.get('https://pokeapi.co/api/v2/pokemon/?offset=', this.pageDown)
-      .subscribe(
-      res => {
-        console.log(this.pageDown);
-        this.pokemon = res.json();
-        event.preventDefault();
-      },
-      error => {
-        console.log(error);
-      }
-      );
+
+    if (this.currentPage >= 20) {
+
+      this.currentPage -= this.page;
+      this.httpService.get('https://pokeapi.co/api/v2/pokemon/?offset=', this.currentPage)
+        .subscribe(
+        res => {
+          this.pokemon = res.json();
+          event.preventDefault();
+        },
+        error => {
+          console.log(error);
+        }
+        );
+    } else {
+      bootbox.alert('Você chegou a primeira página');
+    }
   }
 
 }

@@ -10,30 +10,45 @@ import { Router } from "@angular/router"; // para redirecionamento da rota
 })
 export class HomeComponent implements OnInit {
 
-  public nome: string = "";
+  public nome: string = '';
   public pokemon: any;
+  public spinner: boolean;
 
   constructor(private httpService: HttpService, private router: Router) { }
 
   ngOnInit() {
+
+    this.spinner = false;
     this.pokemon = { name: undefined, sprites: { front_default: undefined } };
+
   }
 
   public buscarPokemon(nome) {
 
-    this.httpService.get('http://pokeapi.co/api/v2/pokemon/', nome)
-      .subscribe(
-      data => {
-        this.pokemon = data.json();
-      },
-      error => {
-       if (error.status === 404) {
-          bootbox.alert('Ops!Pokemon não encontrado,tente novamente!');
-        } else{
-          bootbox.alert(error._body);
+    this.spinner = true;
+
+    if (nome !== '' && nome !== undefined && nome !== null) {
+
+      this.httpService.get('http://pokeapi.co/api/v2/pokemon/', nome)
+        .subscribe(
+        data => {
+          this.pokemon = data.json();
+          this.spinner = false;
+        },
+        error => {
+          if (error.status === 404) {
+            bootbox.alert('Ops!Pokemon não encontrado,tente novamente!');
+            this.spinner = false;
+          } else {
+            bootbox.alert(error._body);
+            this.spinner = false;
+          }
         }
-      }
-      );
+        );
+    } else {
+      bootbox.alert('Você precisa informar o nome do pokemon!');
+      this.spinner = false;
+    }
   }
 
   public reset(): void {
