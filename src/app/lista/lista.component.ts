@@ -35,7 +35,7 @@ export class ListaComponent implements OnInit {
       }
       );
   }
-
+/* fim do onInit */
 
   public voltarHome() {
     this.router.navigateByUrl('');
